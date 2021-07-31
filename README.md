@@ -2,8 +2,7 @@
 This is the calculation program of quasi-periodic Green's function for the Helmholtz equations. The quasi-periodicity is 1-dimension ( x axis ), Green's function is 3-dimensions. This program is used my original method.
 
 ## Definitions
-- quasi-periodic Green's function
-
+- quasi-periodic Green's function  
   <img src="https://latex.codecogs.com/gif.latex?\,^q\!G(\mathbf{r})=\sum_{l=-\infty}^{\infty}G(\mathbf{r}+l\mathbf{d})\exp(il\mathbf{k}\cdot\mathbf{d})">　　  
   <img src="https://latex.codecogs.com/gif.latex?G(\mathbf{r})=\frac{\exp(ik|\mathbf{r}|)}{4\pi|\mathbf{r}|}">  
   <img src="https://latex.codecogs.com/gif.latex?\,^q\!G(\mathbf{r})"> is quasi-periodic Green's function  
@@ -13,7 +12,7 @@ This is the calculation program of quasi-periodic Green's function for the Helmh
   <img src="https://latex.codecogs.com/gif.latex?\mathbf{d}"> is lattice vector, where
   <img src="https://latex.codecogs.com/gif.latex?\mathbf{d}=(d,0,0)">
 
-- quasi-peridic condition
+- quasi-peridic condition  
 
   <img src="https://latex.codecogs.com/gif.latex?\,^q\!G(\mathbf{r}+l\mathbf{d})=\exp(-il\mathbf{k}\cdot\mathbf{d})\,^q\!G(\mathbf{r})">
 
