@@ -1,7 +1,7 @@
 #include "d3_qpgf_d1.h"
 
+// verification function
 void normal_sum(double complex *qG,double complex *dqG,double k,double kx,double d,double *r);
-
 
 int main()
 {
@@ -12,7 +12,7 @@ int main()
 
   eps=1.0e-15; // relative error requested
   lambda=1.0;  // wave length
-  theta=0.3;   // for wave vector 
+  theta=0.3;   // wave vector parameter
   phi=0.5;     // kx=k*sin(theta)*cos(phi), ky=k*sin(theta)*sin(phi), kz=k*cos(theta)
   d=0.5;       // periodic number, lattice vector is (d,0,0)
 
@@ -54,7 +54,14 @@ int main()
   printf("dqG/dx=% 15.14e %+15.14e I\n",creal(dqG[0]),cimag(dqG[0]));
   printf("dqG/dy=% 15.14e %+15.14e I\n",creal(dqG[1]),cimag(dqG[1]));
   printf("dqG/dz=% 15.14e %+15.14e I\n",creal(dqG[2]),cimag(dqG[2]));
-
+ 
+  erc=d3hm_qpgf_d1_qG(&qG,r,eps,&qd);
+  printf("qG    =% 15.14e %+15.14e I,erc=%d\n",creal(qG),cimag(qG),erc);
+  erc=d3hm_qpgf_d1_dqG(dqG,r,eps,&qd);
+  printf("dqG/dx=% 15.14e %+15.14e I,erc=%d\n",creal(dqG[0]),cimag(dqG[0]),erc);
+  printf("dqG/dy=% 15.14e %+15.14e I\n",creal(dqG[1]),cimag(dqG[1]));
+  printf("dqG/dz=% 15.14e %+15.14e I\n",creal(dqG[2]),cimag(dqG[2]));
+  
   r[0]=0.1;
   r[1]=0.04;
   r[2]=0.01;
@@ -83,10 +90,15 @@ int main()
   printf("dqG/dx=% 15.14e %+15.14e I\n",creal(dqG[0]),cimag(dqG[0]));
   printf("dqG/dy=% 15.14e %+15.14e I\n",creal(dqG[1]),cimag(dqG[1]));
   printf("dqG/dz=% 15.14e %+15.14e I\n",creal(dqG[2]),cimag(dqG[2]));
-
+  
+  erc=d3hm_qpgf_d1_qG(&qG,r,eps,&qd);
+  printf("qG    =% 15.14e %+15.14e I,erc=%d\n",creal(qG),cimag(qG),erc);
+  erc=d3hm_qpgf_d1_dqG(dqG,r,eps,&qd);//
+  printf("dqG/dx=% 15.14e %+15.14e I,erc=%d\n",creal(dqG[0]),cimag(dqG[0]),erc);
+  printf("dqG/dy=% 15.14e %+15.14e I\n",creal(dqG[1]),cimag(dqG[1]));
+  printf("dqG/dz=% 15.14e %+15.14e I\n",creal(dqG[2]),cimag(dqG[2]));
   return 0;
 }
-
 
 void normal_sum(double complex *qG,double complex *dG,double k,double kx,double d,double *r)
 {

@@ -8,10 +8,6 @@
 #ifndef SRC_D3_QPGF_D1_H_
 #define SRC_D3_QPGF_D1_H_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <complex.h>
 #include "expint.h"
 #include "chankel1_01.h"
 #include "mod_besK01.h"
@@ -37,8 +33,8 @@ typedef struct qp_data{
 
 int d3hm_qpgf_d1_fd(double complex *qG,double complex *dqG,double *r,double eps,QPDT *qd);
 /* Fourier domain summation
-    qG : value of quasi-periodic green function
-  *dqG : value of differential quasi-periodic green function
+    qG : quasi-periodic green function
+  *dqG : derivative of quasi-periodic green function
          dqG[0]=d/dx(qG), dqG[1]=d/dy(qG), dqG[2]=d/dz(qG)
      r : (x,y,z)
          r[0]=x, r[1]=y, r[2]=z
@@ -52,8 +48,8 @@ int d3hm_qpgf_d1_fd(double complex *qG,double complex *dqG,double *r,double eps,
 
 int d3hm_qpgf_d1_ew(double complex *qG,double complex *dqG,double *r,double eps,QPDT *qd);
 /* Ewald method
-    qG : value of quasi-periodic green function
-  *dqG : value of differential quasi-periodic green function
+    qG : quasi-periodic green function
+  *dqG : derivative of quasi-periodic green function
          dqG[0]=d/dx(qG), dqG[1]=d/dy(qG), dqG[2]=d/dz(qG)
      r : (x,y,z)
          r[0]=x, r[1]=y, r[2]=z
@@ -75,6 +71,7 @@ int d3hm_qpgf_d1(double complex *qG,double complex *dqG,double *r,double eps,QPD
               -22 : Ewald method, abnormal termination. qG2 reached to summation limit
               -23 : Ewald method, abnormal termination. \beta_n == 0.0 (divergence)
 */
-
+int d3hm_qpgf_d1_qG (double complex  *qG,double *r,double eps,QPDT *qd);
+int d3hm_qpgf_d1_dqG(double complex *dqG,double *r,double eps,QPDT *qd);
 
 #endif /* SRC_D3_QPGF_D1_H_ */
