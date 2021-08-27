@@ -562,7 +562,7 @@ int d3hm_ewald_qG2(double complex *qG2,double complex *dqG2,double *r,double eps
 
 int sum_expint(double complex *ret0,double complex *ret1,double ro2,double veps,double bn2,double eps)
 {
-  double complex E1,E0,tG0,tG0o,tG1,tG1o;
+  double complex E1,E0,tG0,tG0o,tG1;
   double sig,ipm,rpm,z,im,dp,rpm1,ipm1;
   int m;
 
@@ -579,7 +579,6 @@ int sum_expint(double complex *ret0,double complex *ret1,double ro2,double veps,
   tG1=0.0;
   for(m=1;m<EW_LIMIT;m++){
     tG0o=tG0;
-    tG1o=tG1;
     sig*=-1.0;
     im=1.0/(double)m;
     ipm1=ipm;
