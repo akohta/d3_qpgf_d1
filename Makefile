@@ -1,5 +1,5 @@
 CC      =gcc
-CFLAGS  =-O3
+CFLAGS  =-O3 -Wall
 LDFLAGS =-lm
 SRCDIR  =src
 OBJDIR  =obj
@@ -21,10 +21,10 @@ directories:
 	@mkdir -p $(OBJDIR)
 
 $(TARGET1) : $(TRGOBJ1) 
-	$(CC) $(LDFLAGS) -o $@ $^ 
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) 
 
 $(TARGET2) : $(TRGOBJ2) 
-	$(CC) $(LDFLAGS) -o $@ $^ 
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
